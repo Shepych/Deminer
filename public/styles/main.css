@@ -9,7 +9,7 @@
 /*        !* Если браузер не поддерживает woff2, загрузит woff *!*/
 /*    url("/fonts/roboto.woff") format("woff");*/
 /*}*/
-
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Roboto:wght@900&display=swap');
 /*@font-face {*/
 /*    font-family: "PT Sans";*/
 /*    !* Браузер сначала попробует найти шрифт локально *!*/
@@ -45,9 +45,16 @@ body {
     width: 100%;
     border-radius: 10px;
     background-color: #212b3d;
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     box-shadow: 0 0 5px black;
-    padding: 20px;
+    padding: 50px;
+}
+
+.course__intro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .course__intro h2 {
@@ -55,7 +62,7 @@ body {
 }
 
 .course__intro p {
-    font-size: 18px;
+    font-size: 22px;
     margin-bottom: 0;
     margin-top: 20px;
 }
@@ -65,8 +72,84 @@ body {
     font-size: 20px;
 }
 
-.course__header {
-    text-align: center;
+.course__title {
+    text-align: left;
+    width: 600px;
+}
+
+
+.course__info__more {
+    width: 170px;
+    height: 60px;
+    border-radius: 10px;
+    background-color: #0290d8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: 'PT Sans';
+    font-size: 22px;
+    margin-left: auto;
+    margin-right: 50px;
+    text-decoration: none;
+    box-shadow: 0 0 5px black;
+}
+
+.course__info__more:hover {
+    color: white;
+}
+
+.course__introduction {
+    font-size: 22px;
+    margin-bottom: 0;
+    margin-top: 20px;
+}
+
+.course__price {
+    font-family: 'Roboto';
+    font-size: 32px;
+    background-color: #831501;
+    border: 1px solid #aa1e07;
+    text-shadow: 3px 3px black;
+}
+
+.example {
+    border-radius: 10px;
+    background-color: #212b3d;
+    box-shadow: 0 0 5px black;
+    margin-top: 20px;
+}
+
+.lesson__item div:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+}
+
+.lesson__item {
+    display: flex;
+    align-items: center;
+    padding: 25px 50px;
+    border-bottom: 1px solid black;
+}
+
+.lesson__item:nth-last-child(1) {
+    border-bottom: none;
+}
+
+.title__lesson {
+    font-family: 'Roboto';
+    font-size: 2rem;
+}
+
+.number__lesson {
+    color: #656e7f;
+    font-size: 20px;
+}
+
+.time__lesson {
+    margin-left: auto;
+    color: #656e7f;
+    font-size: 20px;
 }
 
 header {
@@ -154,8 +237,22 @@ main {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin: 0 -10px;
     margin-top: 10px;
+}
+
+.article {
+    width: calc(50% - 20px);
+    background-color: #212b3d;
+    margin: 10px;
+    box-shadow: 0 0 5px black;
+    padding: 1px;
+    overflow: hidden;
+    position: relative;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: white;
 }
 
 .articles__filter {
@@ -169,15 +266,9 @@ main {
     display: flex;
 }
 
-.article {
-    width: calc(50% - 20px);
-    background-color: #212b3d;
-    margin: 10px;
-    box-shadow: 0 0 5px black;
-    padding: 1px;
-    overflow: hidden;
-    position: relative;
-    z-index: -3;
+.articles__list {
+    display: flex;
+    margin: 0 -10px;
 }
 
 .article__image__wrap {
@@ -199,6 +290,7 @@ main {
     align-items: center;
     text-align: center;
     padding: 20px;
+    height: 100%;
 }
 
 .article__description span {
@@ -215,12 +307,11 @@ main {
     align-items: center;
     padding-left: 10px;
     padding-right: 10px;
-    margin-bottom: 10px;
 }
 
 .pagination__item {
-    width: 54px;
-    height: 54px;
+    width: 60px;
+    height: 60px;
     background-color: #212b3d;
     display: flex;
     justify-content: center;
@@ -230,9 +321,103 @@ main {
     margin: 10px;
     border-radius: 1px;
     box-shadow: 0 0 5px black;
+    margin-bottom: 0;
+    border-radius: 10px;
 }
 
 .pagination__item:hover {
     cursor: pointer;
-    filter: brightness(170%);
+    filter: brightness(150%);
+}
+
+/* Статья */
+
+.article__main {
+    width: 100%;
+    border-radius: 10px;
+    background-color: #212b3d;
+    margin-top: 10px;
+    box-shadow: 0 0 5px black;
+    padding: 50px;
+}
+
+.article__main__title {
+    /*margin-top: 50px;*/
+    /*margin-bottom: 50px;*/
+    font-family: 'Roboto';
+}
+
+.article__info {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 20px;
+    margin-bottom: 25px;
+    color: #656e7f;
+}
+
+.article__cover {
+    width: 100%;
+    max-width: 700px;
+    display: block;
+    box-shadow: 0 0 5px black;
+    margin: 0 auto;
+    margin-bottom: 25px;
+}
+
+.article__main__content {
+    font-size: 22px;
+    margin: 0;
+}
+
+.article__navigate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.article__navigate div {
+    height: 70px;
+    width: 100px;
+    background-color: #718096;
+    color: #212b3d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home__button {
+    font-size: 22px;
+    width: 100px;
+    height: 100px;
+}
+
+/* ПОДВАЛ, FOOTER */
+.telegram__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #212b3d;
+    border-radius: 10px;
+    width: 380px;
+    height: 97px;
+    margin: 20px auto;
+    box-shadow: 0 0 5px black;
+}
+
+.telegram__text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.telegram__icon {
+    box-shadow: 0 0 5px black;
+    display: block;
+    width: 60px;
+    height: 60px;
+    background-size: 107%;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 100%;
 }

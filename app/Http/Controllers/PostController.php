@@ -8,8 +8,14 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     public function postAction($url) {
-        $calculator = Post::calculator();
-        dd($calculator);
-        return 'Страница с новостью, url: ' . $url;
+        $article = Post::where('url', $url)->first();
+        if(!$article){
+            abort(404);
+        }
+
+        return view('news.post' , [
+            'article' => $article,
+            'title' =>  $url,
+        ]);
     }
 }

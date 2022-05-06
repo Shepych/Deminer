@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home.index');
-});
+Route::get('/', 'MainController@indexAction');
 
-Route::get('/{new}', 'PostController@postAction');
+Route::get('/article/{new}', 'PostController@postAction');
+
+Route::get('/course', 'MainController@courseAction');
