@@ -48,10 +48,7 @@
         @endforeach
     </div>
 
-    <div class="pagination">
-        @for($i = 1; $i < 6; $i++)
-            <div class="pagination__item">{{$i}}</div>
-        @endfor
-    </div>
+    {{$posts->links('pagination.classic')}}
+
 </main>
 @endsection

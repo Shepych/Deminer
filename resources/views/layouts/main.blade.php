@@ -53,6 +53,12 @@
 
     @yield('content')
 
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+    <div class="footer__animation">
+        <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_wyzwc4m4.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop autoplay></lottie-player>
+    </div>
+
     <div class="telegram__wrapper">
         <div style='background-size:103%;margin-right: 15px;background-image: url("/images/icons/balaklava.jpg")' class="telegram__icon"></div>
         <div class="telegram__text">

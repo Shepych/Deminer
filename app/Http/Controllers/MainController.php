@@ -11,7 +11,7 @@ class MainController extends Controller
     public function indexAction() {
         return view('home.index', [
             'title' => 'Новости криптовалютной индустрии',
-            'posts' => Post::all(),
+            'posts' => Post::whereNotNull('id')->paginate(4),
         ]);
     }
 

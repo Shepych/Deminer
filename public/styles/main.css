@@ -269,6 +269,7 @@ main {
 .articles__list {
     display: flex;
     margin: 0 -10px;
+    flex-wrap: wrap;
 }
 
 .article__image__wrap {
@@ -420,4 +421,11 @@ main {
     background-repeat: no-repeat;
     background-position: 50%;
     border-radius: 100%;
+}
+
+.footer__animation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 26px;
 }
