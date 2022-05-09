@@ -195,6 +195,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        # Пакет Fortify
+        App\Providers\FortifyServiceProvider::class,
+
+        # Пакет ролей Spatie:Permission ( роли для пользователей )
+        Spatie\Permission\PermissionServiceProvider::class,
     ],
 
     /*

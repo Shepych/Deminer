@@ -18,3 +18,15 @@ Route::get('/', 'MainController@indexAction');
 Route::get('/article/{new}', 'PostController@postAction');
 
 Route::get('/course', 'MainController@courseAction');
+
+# Маршруты добавленные пакетами UI
+Auth::routes();
+
+Route::get('/profile', [App\Http\Controllers\HomeController::class, 'index'])->name('user.profile');
+
+# Маршруты с правами доступа для администратора
+Route::group(['middleware' => ['role:admin']], function () {
+    Route::get('/test', function () {
+        return view('test');
+    });
+});
