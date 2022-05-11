@@ -1,3 +1,5 @@
+{{--{{  dd($article->content)  }}--}}
+
 @extends('layouts.main')
 
 @section('content')
@@ -23,7 +25,7 @@
                     27 мая 2022
                 </span>
             </div>
-            <img class="article__cover" src="/images/posts/{{$article->id}}/{{$article->img}}" alt="Обложка">
+            <img class="article__cover" src="/{{$article->img}}" alt="Обложка">
             <p class="article__main__content">{!! $article->content !!}</p>
         </div>
 

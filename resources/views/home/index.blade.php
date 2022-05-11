@@ -19,7 +19,7 @@
                       <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
                       <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
                     </svg>
-                    2 Часа
+                    1 Час
                 </span>
             </div>
 
@@ -38,7 +38,7 @@
         @foreach($posts as $key => $post)
             <a href="/article/{{$post->url}}" class="article">
                 <div class="article__image__wrap">
-                    <img class="article__face__image" src="/images/posts/{{$post->id}}/{{$post->img}}" alt="Обложка">
+                    <img class="article__face__image" src="{{$post->img}}" alt="Обложка">
                 </div>
 
                 <div class="article__description">

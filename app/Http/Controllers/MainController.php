@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 
 class MainController extends Controller
 {
-    public function indexAction() {
+
+    public function indexAction(Request $request) {
         return view('home.index', [
             'title' => 'Новости криптовалютной индустрии',
             'posts' => Post::whereNotNull('id')->paginate(4),

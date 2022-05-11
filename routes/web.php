@@ -25,8 +25,11 @@ Auth::routes();
 Route::get('/profile', [App\Http\Controllers\HomeController::class, 'index'])->name('user.profile');
 
 # Маршруты с правами доступа для администратора
-Route::group(['middleware' => ['role:admin']], function () {
-    Route::get('/test', function () {
-        return view('test');
-    });
+Route::middleware(['role:admin'])->prefix('admin')->group(function (){
+    Route::get('/panel', [App\Http\Controllers\Admin\HomeController::class, 'indexAction'])->name('homeAdmin');
+
+    Route::get('/articles', [App\Http\Controllers\Admin\ArticleController::class, 'articlesAction'])->name('articlesList');
+
+    Route::get('/articles/add', [App\Http\Controllers\Admin\ArticleController::class, 'articlesAddAction'])->name('articlesAdd');
+    Route::post('/articles/create', [App\Http\Controllers\Admin\ArticleController::class, 'create'])->name('articleCreate');
 });

@@ -14,7 +14,11 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{ __('Вы авторизованы') }}
+
+                    @if(session('status'))
+                        <a href="/admin/panel">Админка</a>
+                    @endif
                 </div>
             </div>
         </div>

@@ -15,7 +15,7 @@
 
 <section class="setka">
     <header>
-        <a href="/login">Авторизация</a><a href="/register">Регистрация</a>
+{{--        <a href="/login">Авторизация</a><a href="/register">Регистрация</a>--}}
         <section class="header__group">
             <img class="header__gpu" src="/images/backgrounds/gpu.png" alt="Видеокарта">
 
