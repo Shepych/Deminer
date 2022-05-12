@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::create('crypto_rates', function (Blueprint $table) {
             $table->id();
             $table->string('cryptocurrency');
+            $table->string('reduction');
+            $table->string('icon');
             $table->decimal('rate');
             $table->timestamps();
         });

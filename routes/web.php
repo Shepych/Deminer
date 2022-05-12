@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'MainController@indexAction');
 
-Route::get('/article/{new}', 'PostController@postAction');
+Route::get('/article/{new}', 'PostController@postAction')->name('article');
 
 Route::get('/course', 'MainController@courseAction');
 
@@ -32,4 +32,6 @@ Route::middleware(['role:admin'])->prefix('admin')->group(function (){
 
     Route::get('/articles/add', [App\Http\Controllers\Admin\ArticleController::class, 'articlesAddAction'])->name('articlesAdd');
     Route::post('/articles/create', [App\Http\Controllers\Admin\ArticleController::class, 'create'])->name('articleCreate');
+    Route::any('/articles/edit/{id}', [App\Http\Controllers\Admin\ArticleController::class, 'articlesEditAction'])->name('articleEdit');
+    Route::any('/articles/delete/{id}', [App\Http\Controllers\Admin\ArticleController::class, 'delete'])->name('article.delete');
 });

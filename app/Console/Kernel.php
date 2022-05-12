@@ -18,8 +18,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        # Command: php artisan schedule:list ( узнать время до исполнения )
         $schedule->call(function () {
-
             # Парсинг Toncoin
             $client = new HtmlWeb();
             $html = $client->load('https://ton.org/toncoin');
@@ -32,15 +32,15 @@ class Kernel extends ConsoleKernel
             $ethereum = $client->coins()->getCoin('ethereum')['market_data']['current_price']['usd'];
 
             $cryptocurrency = [
-                'BTC' => 32000,
-                'ETH' => 2300,
+                'BTC' => $bitcoin,
+                'ETH' => $ethereum,
                 'TON' => $toncoin,
             ];
 
             foreach($cryptocurrency as $token => $price) {
-                DB::table('crypto_rates')->where('cryptocurrency', $token)->update(['rate' => $price]);
+                DB::table('crypto_rates')->where('reduction', $token)->update(['rate' => $price]);
             }
-        })->everyMinute();
+        })->everyTenMinutes();
     }
 
     /**

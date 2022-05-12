@@ -310,6 +310,34 @@
 
     // Create a FilePond instance
     const pond = FilePond.create(inputElement);
+
+    function something_happens() {
+        var input = $("#edit__file");
+        input.replaceWith(input.val('').clone(true));
+        $('#img1').css('display', 'none');
+        $('#img2').css('display', 'block');
+    };
+</script>
+
+<script>
+    //Preview & Update an image before it is uploaded
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#img1').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#edit__file").change(function () {
+        readURL(this);
+        // Скрыть стартовую картинку, показать обновлённую
+        $('#img2').css('display', 'none');
+        $('#img1').css('display', 'block');
+    });
 </script>
 </body>
 </html>

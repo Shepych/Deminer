@@ -1,21 +1,4 @@
-/*@font-face {*/
-/*    font-family: "Roboto";*/
-/*    font-style: normal;*/
-/*    font-weight: 400;*/
-/*    !* Браузер сначала попробует найти шрифт локально *!*/
-/*    src: local("Roboto"),*/
-/*        !* Если не получилось, загрузит woff2 *!*/
-/*    url("/fonts/roboto.woff2") format("woff2"),*/
-/*        !* Если браузер не поддерживает woff2, загрузит woff *!*/
-/*    url("/fonts/roboto.woff") format("woff");*/
-/*}*/
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Roboto:wght@900&display=swap');
-/*@font-face {*/
-/*    font-family: "PT Sans";*/
-/*    !* Браузер сначала попробует найти шрифт локально *!*/
-/*    src: local("PT Sans"),*/
-/*    url("/fonts/PT_Sans/PTSans-Regular.ttf") format("ttf");*/
-/*}*/
 
 * {
     font-family: 'PT Sans';
@@ -428,4 +411,13 @@ main {
     justify-content: center;
     align-items: center;
     margin-right: 26px;
+}
+
+/* АДМИНКА ADMIN */
+
+.admin__edit__img {
+    display: block;
+    margin:0 auto;
+    max-width:600px;
+    width:100%;
 }

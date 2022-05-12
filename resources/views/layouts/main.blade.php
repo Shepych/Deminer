@@ -21,33 +21,17 @@
 
             <ul class="header__menu">
                 {{--                    <li class="logo">MINING.NET</li>--}}
-                <li class="rate">
-                    <div class="token__title">
-                        <span>BITCOIN</span>
-                        <span>BTC</span>
-                    </div>
+                @foreach($rates as $token)
+                    <li class="rate">
+                        <div class="token__title">
+                            <span>{{ $token->cryptocurrency }}</span>
+                            <span>{{ $token->reduction }}</span>
+                        </div>
 
-                    <span class="token__price">$40.000</span>
-                    <img class="token" src="/images/tokens/bitcoin.svg.png" alt="Биткоин">
-                </li>
-                <li class="rate">
-                    <div class="token__title">
-                        <span>ETHEREUM</span>
-                        <span>ETH</span>
-                    </div>
-
-                    <span class="token__price">$3.000</span>
-                    <img class="token" src="/images/tokens/eth.png" alt="Эфириум">
-                </li>
-                <li class="rate">
-                    <div class="token__title">
-                        <span>TONCOIN</span>
-                        <span>TON</span>
-                    </div>
-
-                    <span class="token__price">$2</span>
-                    <img class="token" src="/images/tokens/ton.jpg" alt="Тон">
-                </li>
+                        <span class="token__price">${{ $token->reduction == 'TON' ? $token->rate : round($token->rate) }}</span>
+                        <img class="token" src="{{ $token->icon }}" alt="{{ $token->cryptocurrency }}">
+                    </li>
+                @endforeach
             </ul>
         </section>
     </header>
