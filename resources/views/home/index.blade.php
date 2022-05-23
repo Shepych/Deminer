@@ -6,7 +6,7 @@
     <section class="course">
         <div class="course__intro">
             <div class="course__header">
-                <h2 class="article__main__title course__title">🔥 Полный курс по криптовалютам, майнингу и цифровой безопасности</h2>
+                <h2 onclick="document.location.href = '{{ route('course') }}'" class="article__main__title course__title h2__hover">🔥 Полный курс по криптовалютам, майнингу и цифровой безопасности</h2>
                 <span style="margin-top: 20px;display: block;">
                     <span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
@@ -23,9 +23,21 @@
                 </span>
             </div>
 
-            <a href="/course" class="course__info__more course__price">
-                300р
-            </a>
+            @if(auth()->user())
+                @if(auth()->user()->payment_status)
+                    <div onclick="document.location.href = '{{ route('course') }}'" class="course__info__more paid__button course__button__hover__green">
+                        300р
+                    </div>
+                @else
+                    <div onclick="document.location.href = '{{ route('course') }}'" class="course__info__more course__price course__button__hover">
+                        300р
+                    </div>
+                @endif
+            @else
+                <div onclick="document.location.href = '{{ route('course') }}'" class="course__info__more course__price course__button__hover">
+                    300р
+                </div>
+            @endif
         </div>
 
         <div class="course__untro">
@@ -38,17 +50,24 @@
         @foreach($posts as $key => $post)
             <a href="/article/{{$post->url}}" class="article">
                 <div class="article__image__wrap">
+
+
                     <img class="article__face__image" src="{{$post->img}}" alt="Обложка">
                 </div>
 
                 <div class="article__description">
-                    <span>{{$post->title}}</span>
+                    <span>{{ $post->title }}</span>
+                    <span class="article__date">
+                        ( {{ formatDate($post->publication) }} )
+                    </span>
                 </div>
+
             </a>
         @endforeach
     </div>
-
-    {{$posts->links('pagination.classic')}}
-
 </main>
+
+    <main>
+        {{$posts->links('pagination.classic')}}
+    </main>
 @endsection

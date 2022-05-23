@@ -15,7 +15,14 @@ use Illuminate\Support\Facades\File;
 class ArticleController extends Controller
 {
 
-    public $maxFiles = 2;
+    public function __construct() {
+        # Дополнительная безопасность по IP для админки
+        if(getIp() != $this->admin_ip){
+            abort(403);
+        }
+    }
+
+    public $maxFiles = 700;
 
     public function articlesAction() {
         return view('admin.articles-list',

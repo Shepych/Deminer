@@ -10,6 +10,13 @@ use Illuminate\Support\Facades\Auth;
 class HomeController extends Controller
 {
 
+    public function __construct() {
+        # Дополнительная безопасность по IP для админки
+        if(getIp() != $this->admin_ip){
+            abort(403);
+        }
+    }
+
     public function indexAction(Request $request) {
         $posts = Post::all();
 

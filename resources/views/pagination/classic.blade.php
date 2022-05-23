@@ -3,7 +3,9 @@
 
         @if ($paginator->onFirstPage())
             <div class="pagination__item disabled">
-                @include('svg.left-arrow')
+                @if($paginator->onFirstPage() != $paginator->currentPage())
+                    @include('svg.left-arrow')
+                @endif
             </div>
         @else
             <a href="{{ $paginator->previousPageUrl() }}" rel="prev" class="pagination__item">
@@ -43,7 +45,9 @@
             </a>
         @else
             <div class="pagination__item disabled">
-                @include('svg.right-arrow')
+                @if($paginator->currentPage() != $paginator->lastPage())
+                    @include('svg.right-arrow')
+                @endif
             </div>
         @endif
     </div>

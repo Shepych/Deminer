@@ -62,8 +62,15 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
+    public function showRegistrationForm()
+    {
+        return redirect('/login');
+    }
+
     protected function create(array $data)
     {
+        # Отключить POST регистрацию
+        abort(404);
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],

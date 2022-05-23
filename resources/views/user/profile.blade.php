@@ -1,27 +1,42 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+    <main class="dashboard">
+        <a href="/" class="auth__logo">
+            DEMINER<span class="net">.NET</span>
+        </a>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('Вы авторизованы') }}
-
-                    @if(session('status'))
-                        <a href="/admin/panel">Админка</a>
-                    @endif
+        <section class="user__card">
+            Карточка пользователя
+            @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
                 </div>
+            @endif
+
+            @role('admin')
+            <span style="color:red">ADMIN</span> <br>
+            <a style="color:red" target="_blank" href="/admin/panel">Админка</a>
+            @endrole
+
+            @if(session('status'))
+
+            @endif
+
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button>Выход</button>
+            </form>
+        </section>
+
+        <section class="user__panel">
+            <div class="user__settings">
+                Настройки
             </div>
-        </div>
-    </div>
-</div>
+
+            <div class="user__check">
+                Чек 300р
+            </div>
+        </section>
+    </main>
 @endsection

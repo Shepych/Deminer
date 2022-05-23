@@ -57,7 +57,8 @@ body {
 
 .course__title {
     text-align: left;
-    width: 600px;
+    width: 550px;
+    cursor: pointer;
 }
 
 
@@ -80,6 +81,7 @@ body {
 
 .course__info__more:hover {
     color: white;
+    cursor: pointer;
 }
 
 .course__introduction {
@@ -91,9 +93,34 @@ body {
 .course__price {
     font-family: 'Roboto';
     font-size: 32px;
-    background-color: #831501;
+    background-color: #701501;
     border: 1px solid #aa1e07;
     text-shadow: 3px 3px black;
+    margin-left: auto;
+}
+
+.paid__button {
+    font-family: 'Roboto';
+    font-size: 32px;
+    background-color: #027f19;
+    border: 1px solid #00ff1e;
+    text-shadow: 3px 3px black;
+}
+
+.course__button__hover__green:not(:hover) {
+    transition: 0.3s;
+}
+
+.course__button__hover__green:hover {
+    background-color: darkgreen;
+}
+
+.course__button__hover:not(:hover) {
+    transition: 0.3s;
+}
+
+.course__button__hover:hover {
+    background-color: #531501;
 }
 
 .example {
@@ -124,6 +151,14 @@ body {
     font-size: 2rem;
 }
 
+.title__locked {
+    width: 220px;
+    height: 40px;
+    border-radius: 3px;
+    margin-top: 10px;
+    background-color: #656e7f;
+}
+
 .number__lesson {
     color: #656e7f;
     font-size: 20px;
@@ -149,6 +184,7 @@ header {
     display: flex;
     flex-direction: column;
     list-style-type: none;
+    max-width: 380px;
     width: 100%;
     height: 330px;
     padding: 0;
@@ -170,6 +206,37 @@ header {
 
 .header__menu li:nth-child(3) {
     margin-bottom: 0;
+}
+
+.header__left__section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.authorize__icon {
+    margin-top: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #212b3d;
+    box-shadow: 0 0 5px black;
+    color: #656e7f;
+}
+
+.authorize__icon:not(:hover) {
+    transition: 0.3s;
+}
+
+.authorize__icon:hover {
+    color: #4fb5ff;
 }
 
 .rate {
@@ -203,9 +270,19 @@ header {
 }
 
 .header__gpu {
-    min-width: 600px;
-    margin-right: 20px;
-    margin-top: -10px;
+    max-width: 200px;
+    width: 100%;
+    /*margin-right: 20px;*/
+    margin-top: 15px;
+}
+
+.bitcoin__png {
+    width: 180px;
+}
+
+.net {
+    color: white;
+    transition: 0.3s;
 }
 
 .header__group {
@@ -213,6 +290,10 @@ header {
     justify-content: center;
     align-items: center;
     width: 100%;
+}
+
+.course__header {
+    margin-right: auto;
 }
 
 main {
@@ -224,7 +305,7 @@ main {
 }
 
 .article {
-    width: calc(50% - 20px);
+    border-radius: 10px;
     background-color: #212b3d;
     margin: 10px;
     box-shadow: 0 0 5px black;
@@ -236,6 +317,9 @@ main {
     flex-direction: column;
     text-decoration: none;
     color: white;
+    transition: 0.1s;
+    width: 100%;
+    max-width: 488px;
 }
 
 .articles__filter {
@@ -253,18 +337,32 @@ main {
     display: flex;
     margin: 0 -10px;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .article__image__wrap {
     height: 275px;
-    box-shadow: inset 0 0 20px black;
+    /*box-shadow: inset 0 0 20px black;*/
+    transition: 0.1s;
+    padding: 20px;
+    padding-bottom: 0px;
 }
+
+.article:hover .article__description{
+    color: #4fb5ff;
+}
+
+/*.article:hover .article__image__wrap{*/
+/*    padding: 20px;*/
+/*}*/
 
 .article__face__image {
     width: 100%;
     height: 100%;
     position: relative;
     z-index: -2;
+    box-shadow: 0 0 5px black;
+    border-radius: 10px;
 }
 
 .article__description {
@@ -275,6 +373,10 @@ main {
     text-align: center;
     padding: 20px;
     height: 100%;
+}
+
+.article__description:not(:hover) {
+    transition: 0.3s;
 }
 
 .article__description span {
@@ -303,15 +405,19 @@ main {
     font-size: 18px;
     color: #656e7f;
     margin: 10px;
-    border-radius: 1px;
     box-shadow: 0 0 5px black;
     margin-bottom: 0;
+    margin-top: 0;
     border-radius: 10px;
 }
 
 .pagination__item:hover {
+    color: #4fb5ff;
+}
+
+.pagination__item:not(:hover) {
     cursor: pointer;
-    filter: brightness(150%);
+    transition: 0.3s;
 }
 
 /* Статья */
@@ -326,9 +432,15 @@ main {
 }
 
 .article__main__title {
-    /*margin-top: 50px;*/
-    /*margin-bottom: 50px;*/
     font-family: 'Roboto';
+}
+
+.h2__hover:not(:hover) {
+    transition: 0.3s;
+}
+
+.h2__hover:hover {
+    text-decoration: underline;
 }
 
 .article__info {
@@ -369,6 +481,12 @@ main {
     align-items: center;
 }
 
+.article__date {
+    text-align: center;
+    font-size: 18px !important;
+    color: #656e7f;
+}
+
 .home__button {
     font-size: 22px;
     width: 100px;
@@ -386,6 +504,16 @@ main {
     height: 97px;
     margin: 20px auto;
     box-shadow: 0 0 5px black;
+    text-decoration: none;
+    color: white;
+}
+
+.telegram__wrapper:not(:hover) {
+    transition: 0.3s;
+}
+
+.telegram__wrapper:hover {
+    color: #4fb5ff;
 }
 
 .telegram__text {
@@ -413,6 +541,80 @@ main {
     margin-right: 26px;
 }
 
+.auth__logo {
+    font-weight: bold;
+    font-size: 40px;
+    color: #4fb5ff;
+    text-align: center;
+    text-shadow: 3px 3px black;
+    display: block;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.auth__logo:hover{
+    color: #4fb5ff;
+}
+
+.auth__logo:hover .net{
+    color: #4fb5ff;
+}
+
+.auth__block {
+    border-radius: 10px;
+    padding: 10px 20px;
+    background-color: #212b3d;
+    box-shadow: 0 0 5px black;
+    width:250px;
+}
+
+.auth__input {
+    width: 100%;
+    font-style: italic;
+    text-align: center;
+    outline: none;
+    font-size: 22px !important;
+    background-color: #07101B !important;
+    border: 1px solid #171f2a !important;
+    height: 44px !important;
+    box-shadow: inset 0 0 5px black !important;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #4fb5ff !important;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+.auth__input::placeholder {
+    color: #1f6283;
+}
+
+.auth__submit {
+    width: 100%;
+    box-shadow: 0 0 5px black;
+    border-radius: 3px;
+    font-size: 20px;
+    height: 44px;
+    color: #171f2a;
+    background-color: #707F95;
+    border: none;
+    margin-top: 10px;
+}
+
+.auth__request {
+    display: block;
+    margin: 0 auto;
+    margin-top: 5px;
+    width: 140px;
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+}
+
+.auth__request:hover {
+    color: #4fb5ff;
+}
+
 /* АДМИНКА ADMIN */
 
 .admin__edit__img {
@@ -420,4 +622,45 @@ main {
     margin:0 auto;
     max-width:600px;
     width:100%;
+}
+
+/* ПРОФИЛЬ, PROFILE */
+
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+}
+
+.user__card {
+    width: 100%;
+    border-radius: 10px;
+    background-color: #212b3d;
+    box-shadow: 0 0 5px black;
+    padding: 20px;
+    margin-top: 2px;
+}
+
+.user__panel {
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.user__settings {
+    width: 50%;
+    border-radius: 10px;
+    background-color: #212b3d;
+    box-shadow: 0 0 5px black;
+    padding: 20px;
+    margin-right: 10px;
+}
+
+.user__check {
+    width: 50%;
+    border-radius: 10px;
+    background-color: #212b3d;
+    box-shadow: 0 0 5px black;
+    padding: 20px;
+    margin-left: 10px;
 }

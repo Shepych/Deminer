@@ -17,7 +17,7 @@ Route::get('/', 'MainController@indexAction');
 
 Route::get('/article/{new}', 'PostController@postAction')->name('article');
 
-Route::get('/course', 'MainController@courseAction');
+Route::any('/course', 'MainController@courseAction')->name('course');
 
 # Маршруты добавленные пакетами UI
 Auth::routes();
@@ -35,3 +35,6 @@ Route::middleware(['role:admin'])->prefix('admin')->group(function (){
     Route::any('/articles/edit/{id}', [App\Http\Controllers\Admin\ArticleController::class, 'articlesEditAction'])->name('articleEdit');
     Route::any('/articles/delete/{id}', [App\Http\Controllers\Admin\ArticleController::class, 'delete'])->name('article.delete');
 });
+
+# Почта
+Route::get('/mail', [App\Http\Controllers\MailController::class, 'sendMail'])->name('mail.send');
