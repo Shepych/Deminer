@@ -17,6 +17,12 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
+    # Ключ Яндекс Кассы (YooKassa)
+    'kassa' => [
+        'id' => '911528',
+        'key' => 'test_aNNL-y7dECL7iiwOAOhakFVvICBIpKtEFhj2Q4S2oic',
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment

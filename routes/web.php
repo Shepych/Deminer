@@ -18,6 +18,7 @@ Route::get('/', 'MainController@indexAction');
 Route::get('/article/{new}', 'PostController@postAction')->name('article');
 
 Route::any('/course', 'MainController@courseAction')->name('course');
+Route::get('/lesson/{id}', 'CourseController@lessonAction')->name('lesson');
 
 # Маршруты добавленные пакетами UI
 Auth::routes();

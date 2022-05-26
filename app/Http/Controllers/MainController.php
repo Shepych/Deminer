@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Actions\Fortify\CreateNewUser;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Models\Course;
 use App\Models\Cryptocurrency;
 use App\Models\Order;
 use App\Models\Post;
@@ -62,10 +63,10 @@ class MainController extends Controller
 
             # Если пользователь не авторизован то создаём пользователя
             if(!Auth::user()) {
-                $randomize = rand(0, 50000);
+                $login = generateLogin();
 
                 $user = User::create([
-                    'name' => 'user_' . $randomize,
+                    'name' => $login,
                     'email' => $request->email,
                     'password' => Hash::make(generatePassword()),
                     'payment_id' => $payment->id,
@@ -99,6 +100,7 @@ class MainController extends Controller
         return view('course.course', [
             'title' => '🔥 Полный курс по криптовалютам, майнингу и цифровой безопасности',
             'rates' => Cryptocurrency::rates(),
+            'lessons' => Course::all(),
         ]);
     }
 }

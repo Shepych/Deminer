@@ -92,6 +92,30 @@ function generatePassword() {
     return $password;
 }
 
+# Генератор логина
+function generateLogin($length = 10){
+    $chars = 'abdefhiknrstyzABDEFGHKNQRSTYZ1234567890';
+    $numChars = strlen($chars);
+    $string = '';
+    for ($i = 0; $i < $length; $i++) {
+        $string .= substr($chars, rand(1, $numChars) - 1, 1);
+    }
+    return $string;
+}
+//function generateLogin() {
+//    $login = '';
+//
+//    //Initialize a random desired length
+//    $desired_length = rand(9, 12);
+//
+//    for($length = 0; $length < $desired_length; $length++) {
+//        //Append a random ASCII character (including symbols)
+//        $login .= chr(rand(32, 126));
+//    }
+//
+//    return $login;
+//}
+
 # IP
 function getIp() {
     $value = '';

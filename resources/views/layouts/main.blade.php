@@ -5,6 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/png" href="/favicon.png"/>
     <link rel="stylesheet" href="/js/bootstrap-5.1.3-dist/css/bootstrap.css">
     <link rel="stylesheet" href="/styles/main.css">
     <title>{{$title}}</title>
@@ -68,7 +69,7 @@
         <div style='background-size:103%;margin-right: 15px;background-image: url("/images/icons/balaklava.jpg")' class="telegram__icon"></div>
         <div class="telegram__text">
             <span style="font-size: 22px">Уголовный майнинг</span>
-            <span style="color: #656e7f">1049 Подписчиков</span>
+            <span style="color: #656e7f">Подпишись</span>
         </div>
         <div style='margin-left: 15px;background-image: url("/images/icons/telegram.png");background-size: 114%;background-position: -4px -4px;' class="telegram__icon"></div>
     </a>

@@ -52,86 +52,42 @@
 
         <p class="course__introduction">
             Этот платный курс - ваша инвестиция в знания и информацию.
-            По прохождению которого вы сэкономите кучу времени и узнаете абсолютно всё что нужно
+            По прохождению которого вы узнаете абсолютно всё что нужно
             знать, чтобы сделать комплексный вывод: стоит ли заниматься
             майнингом, инвестировать ли в цифровые активы, каковы
-            риски и перспективы глубоководного мира криптовалют, и что чёрт возьми здесь вообще происходит?! Простыми словами можно???
+            риски и перспективы глубоководного мира криптовалют.
+
+            <br><br>
+
             В 21 веке на пороге цифровой экономики совершенно
             невыгодно быть дураком: держаться за прошлое и мыслить
-            предвзято - что всё это один большой мыльный пузырь (пирамида) …
-            Но это будущее и оно уже настало!
-            Необразованность и нежелание разобраться с криптовалютами
-            раз и навсегда - порождает невежество, а так же упущенные возможности.
+            предвзято - что всё это один большой мыльный пузырь …
+            Это будущее и оно уже наступило!
+            Нежелание разобраться с криптовалютами
+            раз и навсегда - порождает необразованность, невежество, а так же упущенные возможности.
+            Купи ты биткоин 6 лет назад, ты бы сейчас стал сказочно богат, а что если я скажу тебе что ещё не поздно его покупать даже за <strong style="color:limegreen">$30.000</strong> ? Тебе нужно лишь разобраться что к чему, зачем и как!
 
             <br><br>
 
-            5 лет назад, 3 года назад, год назад - все постоянно жалеют, плачут и рассказывают
-            истории о том как могли купить биткоин по 100$ и сейчас бы стали миллионерами, но увы - этого не произошло, а теперь
-            уже поздно его покупать, потому что очень дорого.
+            Как выйти на пассивный доход с криптовалютами, как сохранить капитал в кризис, а может быть и преумножить -
+            всё это ты найдешь в нашем курсе.
 
-            <br><br>
-
-            Я занимаюсь майнингом, инвестирую в криптовалюту, и я расскажу тебе ВСЁ: о чём молчат
-            майнеры и кто такие биткоины
+            Мы занимаемся майнингом, инвестируем в криптовалюту, и мы расскажем тебе почему упала вся крипта, о чём молчат
+            майнеры и кто такие биткоины.
 
             <br>
         </p>
     </section>
 
     <div class="example">
-        <div class="lesson__item">
-            <div><span class="number__lesson">Урок 1</span><span class="title__lesson">Криптовалюта</span>
+        @foreach($lessons as $item)
+        <a @if($unlock)href="/lesson/{{ $item->id }}"@else onclick="sweetError('Курс не оплачен')"@endif class="lesson__item">
+            <div>
+                <span class="number__lesson">Урок {{ $item->number }}</span><span class="title__lesson">@if($unlock || $item->id == 1 || $item->id == 9 || $item->id == 5){{ $item->title }}@else <div class="title__locked"></div> @endif</span>
             </div>
-            <div class="time__lesson">10 мин</div>
-        </div>
-
-        <div class="lesson__item">
-            <div><span class="number__lesson">Урок 2</span>@if($unlock)<span class="title__lesson">Блокчейн</span>@else<div class="title__locked"></div>@endif
-            </div>
-            <div class="time__lesson">10 мин</div>
-        </div>
-
-        <div class="lesson__item">
-            <div><span class="number__lesson">Урок 3</span>@if($unlock)<span class="title__lesson">Майнинг</span>@else<div class="title__locked"></div>@endif
-            </div>
-            <div class="time__lesson">10 мин</div>
-        </div>
-
-        <div class="lesson__item">
-            <div><span class="number__lesson">Урок 4</span>@if($unlock)<span class="title__lesson">Сборка фермы</span>@else<div class="title__locked"></div>@endif
-            </div>
-            <div class="time__lesson">10 мин</div>
-        </div>
-
-        <div class="lesson__item">
-            <div><span class="number__lesson">Урок 5</span>@if($unlock)<span class="title__lesson">Пассивный доход</span>@else<div class="title__locked"></div>@endif
-            </div>
-            <div class="time__lesson">10 мин</div>
-        </div>
-
-        <div class="lesson__item">
-            <div><span class="number__lesson">Урок 6</span>@if($unlock)<span class="title__lesson">Активный доход</span>@else<div class="title__locked"></div>@endif
-            </div>
-            <div class="time__lesson">10 мин</div>
-        </div>
-
-        <div class="lesson__item">
-            <div><span class="number__lesson">Урок 7</span>@if($unlock)<span class="title__lesson">Безопасность активов</span>@else<div class="title__locked"></div>@endif
-            </div>
-            <div class="time__lesson">10 мин</div>
-        </div>
-
-        <div class="lesson__item">
-            <div><span class="number__lesson">Урок 8</span>@if($unlock)<span class="title__lesson">NFT</span>@else<div class="title__locked"></div>@endif
-            </div>
-            <div class="time__lesson">10 мин</div>
-        </div>
-
-        <div class="lesson__item">
-            <div><span class="number__lesson">Урок 9</span>@if($unlock)<span class="title__lesson">Резюме</span>@else<div class="title__locked"></div>@endif
-            </div>
-            <div class="time__lesson">10 мин</div>
-        </div>
+            <div class="time__lesson">{{ $item->timer }}</div>
+        </a>
+        @endforeach
     </div>
 
     <div class="pagination" style="margin-top: 20px">

@@ -22,13 +22,31 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function checkPayment() {
+        $client = new Client();
+        $client->setAuth(config('app.kassa.id'), config('app.kassa.key'));
+        $users = User::where('payment_status', false)->get();
+
+        foreach ($users as $user) {
+            try {
+                $payment = $client->getPaymentInfo($user->payment_id);
+//                $payment = $client->getPaymentInfo('2a2096fa-000f-5000-8000-1edb01463643');
+            } catch (Throwable $e) {
+                DB::table('model_has_roles')->where('model_id', $user->id)->delete();
+                DB::table('users')->delete($user->id);
+            }
+
+            if($payment->status == 'canceled'){
+                DB::table('model_has_roles')->where('model_id', $user->id)->delete();
+                DB::table('users')->delete($user->id);
+            }
+        }
+
         $user = Auth::user();
 
         # Если юзер авторизован
         if($user){
             $client = new Client();
-            $client->setAuth('911528', 'test_aNNL-y7dECL7iiwOAOhakFVvICBIpKtEFhj2Q4S2oic');
-
+            $client->setAuth(config('app.kassa.id'), config('app.kassa.key'));
 
             try {
                 $payment = $client->getPaymentInfo($user->payment_id);
